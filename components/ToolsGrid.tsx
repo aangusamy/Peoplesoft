@@ -619,9 +619,11 @@ type DetailData = typeof teamsIntegrationDetail | typeof codeAnalyzerDetail | ty
 /* ═══════════════════════════════════════════════════════════════
    MODAL
 ═══════════════════════════════════════════════════════════════ */
+const STACK_TAB_ID = "__stack__";
+
 function DetailModal({ data, onClose }: { data: DetailData; onClose: () => void }) {
   const [activeTab, setActiveTab] = useState(data.sections[0].id);
-  const activeSection = data.sections.find((s) => s.id === activeTab)!;
+  const activeSection = data.sections.find((s) => s.id === activeTab);
   const accent = data.accentColor;
   const accentMap: Record<string, { tab: string; badge: string; dot: string; btn: string }> = {
     blue: { tab: "border-blue-500 text-blue-400", badge: "bg-blue-500/20 text-blue-300", dot: "bg-blue-500", btn: "bg-blue-500/10 border-blue-500/30 text-blue-300" },
@@ -675,6 +677,14 @@ function DetailModal({ data, onClose }: { data: DetailData; onClose: () => void 
                 </button>
               );
             })}
+            <button
+              onClick={() => setActiveTab(STACK_TAB_ID)}
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-200 border
+                ${activeTab === STACK_TAB_ID ? `${ac.tab} bg-white/5 border-white/15` : "text-gray-500 border-transparent hover:text-gray-300 hover:bg-white/5"}`}
+            >
+              <Layers className="w-3.5 h-3.5" />
+              Stack
+            </button>
           </div>
         </div>
 
@@ -682,21 +692,21 @@ function DetailModal({ data, onClose }: { data: DetailData; onClose: () => void 
         <div className="flex-1 overflow-y-auto px-6 py-6">
           <AnimatePresence mode="wait">
             <motion.div key={activeTab} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.18 }}>
-              <SectionContent section={activeSection} ac={ac} isTeams={data.accentColor === "blue"} />
+              {activeTab === STACK_TAB_ID ? (
+                <div className="space-y-3">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Technology Stack</p>
+                  {data.stack.map((s) => (
+                    <div key={s.layer} className="flex items-center justify-between px-4 py-3 rounded-xl border border-white/8 bg-white/[0.02]">
+                      <span className="text-xs text-gray-500 font-semibold uppercase tracking-wider">{s.layer}</span>
+                      <span className="text-sm font-mono text-white">{s.tech}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : activeSection ? (
+                <SectionContent section={activeSection} ac={ac} isTeams={data.accentColor === "blue"} />
+              ) : null}
             </motion.div>
           </AnimatePresence>
-        </div>
-
-        {/* ── Stack Footer ── */}
-        <div className="flex-shrink-0 border-t border-white/8 px-6 py-4 bg-white/[0.01]">
-          <p className="text-[10px] text-gray-600 font-semibold uppercase tracking-widest mb-2">Tech Stack</p>
-          <div className="flex flex-wrap gap-2">
-            {data.stack.map((s) => (
-              <span key={s.layer} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/8 text-xs text-gray-400">
-                <span className="text-gray-600">{s.layer}: </span>{s.tech}
-              </span>
-            ))}
-          </div>
         </div>
       </motion.div>
     </motion.div>
