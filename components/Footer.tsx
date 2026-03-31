@@ -129,11 +129,16 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
           <span>© {new Date().getFullYear()} PeopleSoft AI Studio. Open Source.</span>
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 flex-wrap justify-center sm:justify-end">
             Built by{" "}
             <span className="text-purple-400 font-semibold">Velu Angusamy</span>
             <span className="text-gray-700 mx-1">·</span>
             <span className="text-gray-500">Technical Architect — PeopleSoft HCM & AI</span>
+            <span className="text-gray-700 mx-1">·</span>
+            Contributor{" "}
+            <span className="text-cyan-400 font-semibold">Dhaksith Abhimanyu</span>
+            <span className="text-gray-700 mx-1">·</span>
+            <span className="text-gray-500">Founder — Abhimanyu Intelligence</span>
           </span>
         </div>
       </div>
