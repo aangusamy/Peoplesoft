@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type TargetAndTransition, type Transition } from "framer-motion";
 import { ArrowRight, Github, Sparkles } from "lucide-react";
 
 const fadeUp = (delay: number) => ({
@@ -15,8 +15,8 @@ function AnimatedBlob({
   transition,
 }: {
   className: string;
-  animate: object;
-  transition: object;
+  animate: TargetAndTransition;
+  transition: Transition;
 }) {
   return (
     <motion.div
