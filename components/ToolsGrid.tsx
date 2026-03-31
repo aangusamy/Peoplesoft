@@ -614,7 +614,7 @@ const codeAnalyzerDetail = {
 /* ═══════════════════════════════════════════════════════════════
    TYPE
 ═══════════════════════════════════════════════════════════════ */
-type DetailData = typeof teamsIntegrationDetail;
+type DetailData = typeof teamsIntegrationDetail | typeof codeAnalyzerDetail | typeof psAiStudioDetail | typeof copilotDetail;
 
 /* ═══════════════════════════════════════════════════════════════
    MODAL
