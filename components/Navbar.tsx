@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 
 const navLinks = [
   { label: "Tools", href: "#tools" },
@@ -14,6 +14,12 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showNotice, setShowNotice] = useState(false);
+
+  const handleGithubClick = () => {
+    setShowNotice(true);
+    setTimeout(() => setShowNotice(false), 2500);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -62,16 +68,25 @@ export default function Navbar() {
           </nav>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="https://github.com/aangusamy/peoplesoft"
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="hidden md:flex items-center gap-3 relative">
+            <button
+              onClick={handleGithubClick}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white border border-white/20 rounded-lg hover:border-purple-500/60 hover:bg-purple-500/10 transition-all duration-300"
             >
-              <Github className="w-4 h-4" />
-              GitHub
-            </a>
+              Open Source
+            </button>
+            <AnimatePresence>
+              {showNotice && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  className="absolute top-12 right-0 z-50 whitespace-nowrap px-3 py-2 rounded-lg border border-white/15 bg-[#13131f] text-xs text-gray-300 shadow-xl"
+                >
+                  Open Source — Code Coming Soon
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Mobile Menu Button */}
@@ -106,15 +121,12 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="https://github.com/aangusamy/peoplesoft"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => { setMobileOpen(false); handleGithubClick(); }}
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white border border-white/20 rounded-lg w-full justify-center mt-2"
               >
-                <Github className="w-4 h-4" />
-                View on GitHub
-              </a>
+                Open Source — Code Coming Soon
+              </button>
             </div>
           </motion.div>
         )}

@@ -7,7 +7,7 @@ const phases = [
   {
     phase: "Now",
     status: "current",
-    statusLabel: "Live",
+    statusLabel: "Live — v2.1",
     dot: "bg-green-500",
     dotGlow: "shadow-[0_0_12px_rgba(34,197,94,0.8)]",
     labelColor: "text-green-400",
@@ -16,9 +16,18 @@ const phases = [
     icon: CheckCircle2,
     iconColor: "text-green-400",
     items: [
-      { label: "AI Code Analyzer", description: "Auto-documentation for PeopleCode" },
-      { label: "Teams Bot Integration", description: "Natural language PeopleSoft queries" },
-      { label: "Copilot Bridge", description: "GitHub Copilot connector" },
+      {
+        label: "PeopleSoft AI Code Analyzer",
+        description: "Offline-first static analysis — 100,000+ PS objects indexed, 5-layer coverage (XML · SQR · COBOL · Oracle DB · Security). $0.003 per AI query. Anthropic · OpenAI · Azure · Gemini support.",
+      },
+      {
+        label: "Teams Bot Integration",
+        description: "Microsoft Teams Bot + FastAPI middleware — natural language leave balance & payslip queries. Zero-trust identity via Azure AD + MS Graph EMPLID resolution. JWT-secured, stateless, horizontally scalable.",
+      },
+      {
+        label: "Microsoft Copilot Integration",
+        description: "3 architecture options documented: Power Automate · APIM Policies · FastAPI Middleware (recommended). services.json config-driven — add new PeopleSoft services with zero code changes.",
+      },
     ],
   },
   {
@@ -33,9 +42,18 @@ const phases = [
     icon: Clock,
     iconColor: "text-blue-400",
     items: [
-      { label: "MCP Framework", description: "Full Model Context Protocol implementation" },
-      { label: "APIM Gateway", description: "Secure enterprise API management" },
-      { label: "SQL Tuning Assistant", description: "AI-powered query optimization" },
+      {
+        label: "Classic to Fluid Conversion",
+        description: "AI-assisted migration of PeopleSoft Classic pages to Fluid UI. Automated layout mapping, PeopleCode event re-implementation, and component structure tracing.",
+      },
+      {
+        label: "Natural Language SQL Execution",
+        description: "Plain-English questions against live PeopleSoft data via ExecuteQuery.v1 REST API. EMPLID-secured, response transformer with value_map code translation.",
+      },
+      {
+        label: "SQL Tuning Assistant",
+        description: "AI-powered SQL performance analysis for PeopleSoft queries using the DB index layer. Bottleneck identification, index recommendations, and execution plan analysis.",
+      },
     ],
   },
   {
@@ -50,9 +68,18 @@ const phases = [
     icon: Circle,
     iconColor: "text-purple-400",
     items: [
-      { label: "Full AI Platform", description: "Complete enterprise AI orchestration layer" },
-      { label: "Multi-Tenant Support", description: "Isolated environments per business unit" },
-      { label: "Enterprise SSO", description: "Full Azure AD / Okta integration" },
+      {
+        label: "Self-Healing psadmin Assistant",
+        description: "AI-driven PeopleSoft admin that detects, diagnoses, and auto-remediates common system issues — process scheduler failures, web server restarts, environment health checks.",
+      },
+      {
+        label: "APIM Gateway & Integration Toolkit",
+        description: "Enterprise API routing layer with rate limiting, OAuth, and analytics. Modular adapters to connect SAP, Workday, ServiceNow to the AI Studio MCP gateway.",
+      },
+      {
+        label: "Full Enterprise AI Platform",
+        description: "Multi-tenant deployment with isolated environments per business unit. Full Azure AD / Okta SSO. Platform migration tooling reducing 6-month consultant projects to 2-month team efforts.",
+      },
     ],
   },
 ];

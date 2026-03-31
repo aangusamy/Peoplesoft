@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type TargetAndTransition, type Transition } from "framer-motion";
-import { ArrowRight, Github, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 40 },
@@ -133,15 +133,9 @@ export default function Hero() {
             <ArrowRight className="relative w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
-          <a
-            href="https://github.com/aangusamy/peoplesoft"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-gray-300 border border-white/15 hover:border-white/30 hover:text-white hover:bg-white/5 transition-all duration-300 hover:scale-105"
-          >
-            <Github className="w-4 h-4" />
-            View on GitHub
-          </a>
+          <span className="flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-gray-500 border border-white/10 cursor-default select-none text-sm">
+            Open Source — Code Coming Soon
+          </span>
         </motion.div>
 
         {/* Stats */}

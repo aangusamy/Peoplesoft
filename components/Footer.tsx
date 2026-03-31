@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Zap, ExternalLink, Mail } from "lucide-react";
+import { Zap, Mail } from "lucide-react";
 
 const navLinks = [
   { label: "Tools", href: "#tools" },
@@ -36,17 +36,10 @@ export default function Footer() {
             with AI today.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://github.com/aangusamy/peoplesoft"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 opacity-90 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 blur-xl opacity-40 group-hover:opacity-70 transition-opacity" />
-              <Github className="relative w-4 h-4" />
-              <span className="relative">Star on GitHub</span>
-            </a>
+            <span className="group relative flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white overflow-hidden cursor-default select-none">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 opacity-60" />
+              <span className="relative">Open Source — Code Coming Soon</span>
+            </span>
             <a
               href="mailto:contact@example.com"
               className="flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-gray-300 border border-white/15 hover:border-white/30 hover:text-white hover:bg-white/5 transition-all duration-300"
@@ -119,16 +112,9 @@ export default function Footer() {
               Links
             </div>
             <div className="flex flex-col gap-2.5">
-              <a
-                href="https://github.com/aangusamy/peoplesoft"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-purple-300 transition-colors sm:justify-end"
-              >
-                <Github className="w-3.5 h-3.5" />
-                GitHub Repository
-                <ExternalLink className="w-3 h-3" />
-              </a>
+              <span className="flex items-center gap-2 text-sm text-gray-500 cursor-default select-none sm:justify-end">
+                GitHub — Code Coming Soon
+              </span>
               <a
                 href="mailto:contact@example.com"
                 className="flex items-center gap-2 text-sm text-gray-400 hover:text-purple-300 transition-colors sm:justify-end"
@@ -143,10 +129,11 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
           <span>© {new Date().getFullYear()} PeopleSoft AI Studio. Open Source.</span>
-          <span>
-            Built with{" "}
-            <span className="text-purple-400">Next.js</span> &{" "}
-            <span className="text-red-400">♥</span>
+          <span className="flex items-center gap-1.5">
+            Built by{" "}
+            <span className="text-purple-400 font-semibold">Velu Angusamy</span>
+            <span className="text-gray-700 mx-1">·</span>
+            <span className="text-gray-500">Technical Architect — PeopleSoft HCM & AI</span>
           </span>
         </div>
       </div>
